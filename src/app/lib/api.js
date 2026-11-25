@@ -1,40 +1,43 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || "").replace(/\/+$/, "");
 
 export function getAuthToken() {
-    if (typeof window === "undefined") return null;
+  if (typeof window === "undefined") return null;
 
-    return (
-        sessionStorage.getItem("sipl_token") ||
-        localStorage.getItem("sipl_token")
-    );
+  return (
+    sessionStorage.getItem("sipl_token") ||
+    localStorage.getItem("sipl_token")
+  );
 }
 
 export async function apiRequest(endpoint, options = {}) {
-    const token = getAuthToken();
+  if (!API_URL) {
+    throw new Error("NEXT_PUBLIC_API_URL belum dikonfigurasi di .env.local.");
+  }
 
-    const response = await fetch(`${API_URL}${endpoint}`, {
-        ...options,
-        headers: {
-            Accept: "application/json",
-            ...(options.body ? { "Content-Type": "application/json" } : {}),
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
-            ...options.headers,
-        },
-        cache: "no-store",
-    });
+  const token = getAuthToken();
+  const headers = {
+    Accept: "application/json",
+    ...(options.body ? { "Content-Type": "application/json" } : {}),
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...options.headers,
+  };
 
-    const result = await response.json().catch(() => ({}));
+  const response = await fetch(`${API_URL}${endpoint}`, {
+    ...options,
+    headers,
+    cache: "no-store",
+  });
 
-    if (!response.ok) {
-        const error = new Error(
-            result.message || "Terjadi kesalahan pada server."
-        );
+  const result = await response.json().catch(() => ({}));
 
-        error.status = response.status;
-        error.errors = result.errors || null;
+  if (!response.ok) {
+    const error = new Error(
+      result.message || `Permintaan gagal (${response.status}).`
+    );
+    error.status = response.status;
+    error.errors = result.errors || null;
+    throw error;
+  }
 
-        throw error;
-    }
-
-    return result;
+  return result;
 }

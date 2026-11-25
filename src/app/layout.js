@@ -11,7 +11,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-import { AuthProvider } from "../app/context/AuthContext";
+import { AuthProvider } from "./app/context/AuthContext";
 
 export const metadata = {
   title: "SIPL-IoT",
