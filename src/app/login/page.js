@@ -347,8 +347,13 @@ export default function AuthPage() {
             type="button"
             onClick={() => handleTabChange("login")}
             className={`py-2.5 rounded-lg transition ${activeTab === "login"
+<<<<<<< HEAD
               ? "bg-blue-600 text-white"
               : "text-slate-400"
+=======
+                ? "bg-blue-600 text-white"
+                : "text-slate-400"
+>>>>>>> 7245c0d5573cc88918a2fb911acc17aaab2926de
               }`}
           >
             Masuk
@@ -358,8 +363,13 @@ export default function AuthPage() {
             type="button"
             onClick={() => handleTabChange("register")}
             className={`py-2.5 rounded-lg transition ${activeTab === "register"
+<<<<<<< HEAD
               ? "bg-blue-600 text-white"
               : "text-slate-400"
+=======
+                ? "bg-blue-600 text-white"
+                : "text-slate-400"
+>>>>>>> 7245c0d5573cc88918a2fb911acc17aaab2926de
               }`}
           >
             Daftar Baru
@@ -378,8 +388,13 @@ export default function AuthPage() {
           <div
             role="alert"
             className={`rounded-xl border p-3 text-xs flex gap-2 ${messageType === "success"
+<<<<<<< HEAD
               ? "bg-emerald-950/40 border-emerald-800 text-emerald-300"
               : "bg-red-950/40 border-red-900 text-red-300"
+=======
+                ? "bg-emerald-950/40 border-emerald-800 text-emerald-300"
+                : "bg-red-950/40 border-red-900 text-red-300"
+>>>>>>> 7245c0d5573cc88918a2fb911acc17aaab2926de
               }`}
           >
             {messageType === "success"
