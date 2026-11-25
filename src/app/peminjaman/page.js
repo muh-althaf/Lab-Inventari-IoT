@@ -86,7 +86,11 @@ export default function PeminjamanPage() {
       return;
     }
 
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> 7245c0d5573cc88918a2fb911acc17aaab2926de
 
     if (user.role !== "mahasiswa") {
       router.replace(
@@ -361,8 +365,13 @@ export default function PeminjamanPage() {
             <div className="text-center space-y-3">
               <div
                 className={`w-14 h-14 rounded-full flex items-center justify-center mx-auto ${submissionResult.data?.status_peminjaman === "disetujui"
+<<<<<<< HEAD
+                  ? "bg-emerald-100 text-emerald-600"
+                  : "bg-rose-100 text-rose-600"
+=======
                     ? "bg-emerald-100 text-emerald-600"
                     : "bg-rose-100 text-rose-600"
+>>>>>>> 7245c0d5573cc88918a2fb911acc17aaab2926de
                   }`}
               >
                 {submissionResult.data?.status_peminjaman === "disetujui" ? (

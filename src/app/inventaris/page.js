@@ -330,8 +330,13 @@ export default function InventarisPage() {
                         </div>
 
                         <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-full ${empty
+<<<<<<< HEAD
+                          ? "bg-rose-50 text-rose-600"
+                          : "bg-emerald-50 text-emerald-700"
+=======
                             ? "bg-rose-50 text-rose-600"
                             : "bg-emerald-50 text-emerald-700"
+>>>>>>> 7245c0d5573cc88918a2fb911acc17aaab2926de
                           }`}>
                           {empty ? "Stok kosong" : "Tersedia"}
                         </span>

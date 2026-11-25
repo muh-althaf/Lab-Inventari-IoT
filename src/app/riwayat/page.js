@@ -510,8 +510,13 @@ export default function RiwayatPage() {
                     key={tab.value}
                     onClick={() => setActiveTab(tab.value)}
                     className={`px-3 py-1.5 rounded-lg text-[11px] font-medium transition ${activeTab === tab.value
+<<<<<<< HEAD
+                      ? "bg-blue-600 text-white shadow-sm"
+                      : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-100"
+=======
                         ? "bg-blue-600 text-white shadow-sm"
                         : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-100"
+>>>>>>> 7245c0d5573cc88918a2fb911acc17aaab2926de
                       }`}
                   >
                     {tab.label}
@@ -597,8 +602,13 @@ export default function RiwayatPage() {
                         key={transaction.id_peminjaman}
                         onClick={() => handleSelectTransaction(transaction)}
                         className={`w-full text-left bg-white p-4 rounded-xl border transition ${isSelected
+<<<<<<< HEAD
+                          ? "border-blue-500 ring-2 ring-blue-500/10 shadow-sm"
+                          : "border-slate-200 hover:border-slate-300 hover:shadow-sm"
+=======
                             ? "border-blue-500 ring-2 ring-blue-500/10 shadow-sm"
                             : "border-slate-200 hover:border-slate-300 hover:shadow-sm"
+>>>>>>> 7245c0d5573cc88918a2fb911acc17aaab2926de
                           }`}
                       >
                         <div className="flex justify-between items-start gap-2">
